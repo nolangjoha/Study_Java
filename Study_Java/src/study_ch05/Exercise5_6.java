@@ -12,12 +12,15 @@ public class Exercise5_6 {
 		
 		for(int i=0; i<words.length; i++) {
 			char[] question = words[i].toCharArray();
-			int j = (int)(Math.random() * question.length);
 			
-			
-			char tmp = question[i];
-			question[i] = question[j];
-			question[j] = tmp;
+			for(int j=0; j<question.length; j++) {
+				int idx = (int) (Math.random() * question.length);
+				
+				char tmp = question[j];
+				question[j] = question[idx];
+				question[idx] = tmp;
+				
+			}
 			
 			System.out.printf("Q%d. %s의 정답을 입력하세요.>", i+1, new String(question));
 			
