@@ -4,29 +4,29 @@ public class Test {
 
 	public static void main(String[] args) {
 		
-		int i = 0;
-		int sum = 0;
-
-		while(sum < 100) {
-			i++;
-			if(i%2 == 0) {  // 짝수
-				sum += -i;
-			} else {
-				sum += i;
+		int answer = (int)(Math.random()*100)+ 1;
+		int input = 0;
+		int count = 0;
+		
+		System.out.println("answer:" + answer);
+		
+		java.util.Scanner s = new java.util.Scanner(System.in);
+		
+		do {
+			count++;
+			System.out.print("1과 100사이의 값을 입력하세요 :");
+			input = s.nextInt();
+			
+			if(input <answer) {
+				System.out.println("더 큰 수를 입력하세요.");
+			} else if(input > answer) {
+				System.out.println("더 작은 수를 입력하세요.");
+			} else if(input == answer) {
+				System.out.println("맞혔습니다.");
+				System.out.println("시도횟수는 " + count + "번 입니다.");
+				break;
 			}
-		}
-		
-//		for(i=1; sum < 100; i++) {
-//			if(i%2 == 0) {
-//				sum+= -i;
-//			}else {
-//				sum += i;
-//			}
-//			if(sum >= 100) break;
-//		}
-		
-		System.out.println("i값:" + i);
-		System.out.println("sum값: " +sum);
+		} while(true);
 
 		
 	}

@@ -1,6 +1,5 @@
 package study_ch06;
 
-// 1번문제
 class Student1 {
 	String name;
 	int ban;
@@ -8,12 +7,10 @@ class Student1 {
 	int kor;
 	int eng;
 	int math;
-	
-	// 2번문제 :기본생성자
+
 	Student1(){}
-	
-	// 2번문제
-	Student1(String name, int ban, int no, int kor, int eng, int math){
+
+	Student1(String name, int ban, int no, int kor, int eng, int math) {
 		this.name = name;
 		this.ban = ban;
 		this.no = no;
@@ -21,177 +18,119 @@ class Student1 {
 		this.eng = eng;
 		this.math = math;
 	}
-
-	// 2번문제 : info()
+	
 	String info() {
-		return name + ", " +
-				ban + ", " +
-				no + ", " +
-				kor + ", " +
-				eng + ", " +
-				math+ ", " +
-				(kor+eng+math) + ", " +
-				((int)(((kor+eng+math) *10 /3f) + 0.5f)/10f);
+		return name + ", "
+			+  ban + ", "
+			+  no + ", "
+			+  kor + ", "
+			+  eng + ", "
+			+  math + ", "
+			+ (kor+eng+math) + ", "
+			+ (int)((kor+eng+math)/3f * 10 +0.5)/10f
+				;
 	}
 	
-	// 3번문제 : getTotal()
 	int getTotal() {
-		return kor+eng+math;
+		return kor + eng + math;
 	}
-	// 3번문제 : getAverage()
+	
 	float getAverage() {
-		return (int)(((kor+eng+math) /3f * 10) +0.5f)/10f;
+		return (int)(getTotal()/3f *10 + 0.5f)/10f;
 	}
+	
 }
 
-// 6번 문제
+public class Test {
+	public static void main(String[] args) {
+	
+		//2번 문제
+//		Student1 s = new Student1("홍길동", 1 ,1 ,100 ,60 ,76);
+//		
+//		String str = s.info();
+//		System.out.println(str);
+
+		//3번문제
+//		Student1 s = new Student1();
+//		s.name = "홍길동";
+//		s.ban = 1;
+//		s.no = 1;
+//		s.kor = 100;
+//		s.eng = 60;
+//		s.math = 76;
+//				
+//		System.out.println("이름: " + s.name);
+//		System.out.println("총점: " + s.getTotal() );
+//		System.out.println("평균: " + s.getAverage());
+
+		// 4번문제
+//		System.out.println(getDistance(1, 1, 2, 2));
+		
+		//6번분제
+//		MyPoint1 p = new MyPoint1(1,1);
+//		System.out.println(p.getDistance(2, 2));
+
+		//17번 문제
+//		int[] original = {1,2,3,4,5,6,7,8,9};
+//		System.out.println(java.util.Arrays.toString(original));
+//		
+//		int[] result = shuffle(original);
+//		System.out.println(java.util.Arrays.toString(result));
+		
+		//18번문제
+		String str = "";
+//		System.out.println(str.charAt(2));
+		System.out.println(str + "는 숫자입니까?" + isNumber(str));
+		
+		str = "123499";
+		System.out.println(str + "는 숫자입니까?" + isNumber(str));
+	}
+	//4번문제
+//	static double getDistance(int x, int y, int x1, int y1) {
+//		return 	Math.sqrt((x1-x)*(x1-x)+(y1-y)*(y1-y));
+//	}
+	
+	//17번문제
+	static int[] shuffle(int[] arr) {
+		if(arr==null || arr.length==0) return arr;
+		
+		for(int i=0; i<arr.length; i++) {
+			int idx = (int)(Math.random()*arr.length);
+			int tmp = 0;
+
+			tmp = arr[i];
+			arr[i] = arr[idx];
+			arr[idx] = tmp;
+		}
+		return arr;
+	}
+
+	//18번 문제
+	static boolean isNumber (String str) {
+		if (str==null || str.equals("")) return false;
+		
+		for(int i=0; i<str.length(); i++) {
+			if(!('0' <= str.charAt(i) && str.charAt(i) <='9')) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	
+}
+
 class MyPoint1 {
 	int x;
 	int y;
-	
-	MyPoint1() {}
 	
 	MyPoint1(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
-	// 6번 문제 getDistance()
-	double getDistance(int x1, int y1) {
-//		
-//		int xLenth = this.x -x;
-//		int yLenth = this.y -y;
-//		double z = Math.sqrt(xLenth*xLenth + (yLenth*yLenth);	
-		
-//		double z = Math.sqrt((this.x -x)*(this.x -x) + (this.y -y)*(this.y -y));
-		
-		return Math.sqrt((x -x1)*(x -x1) + (y -y1)*(y -y1));
+	
+	double getDistance(int x, int y) {
+		return Math.sqrt((this.x -x)*(this.x -x)+(this.y-y)*(this.y-y));
 	}
 	
-}
-
-// 19번 문제
-class MyTv1 {
-	boolean isPowerOn;
-	int channel;
-	int volume;
-	
-	final int MAX_VOLUME = 100;
-	final int MIN_VOLUME = 0;
-	final int MAX_CHANNEL = 100;
-	final int MIN_CHANNEL= 1;
-	
-	
-	void  turnOnOff() {
-		isPowerOn = !isPowerOn;
-	}
-	
-	void volumeUp() {
-		if(volume < MAX_VOLUME)
-			volume++;
-	}
-	
-	void volumeDown() {
-		if(volume>MAX_VOLUME)
-			volume--;
-	}
-	
-	void channelUp() {
-		if(channel == MAX_CHANNEL)
-			channel = MIN_CHANNEL;
-		channel++;
-	}
-
-	void channelDown() {
-		if(channel == MIN_CHANNEL)
-			channel = MAX_CHANNEL;
-		channel--;
-		
-	}
-
-}
-
-
-public class Test {
-	
-	// 4번 문제 :getDistance(int a,int b,int c,int d)
-	static double getDistance(int x, int y, int x1, int y1) {
-		
-		int xLenth = x-x1;
-		int yLenth = y-y1;
-		
-		double z = Math.sqrt(xLenth*xLenth + yLenth*yLenth);
-		
-		return z;
-	}
-	
-	// 17번 문제: shuffle(int[] arr)
-	static int[] shuffle(int[] arr) {
-		
-		// 유효성 체크
-		if(arr == null || arr.length==0)
-			return arr;
-		
-		int idx = (int) (Math.random()*arr.length);
-		
-		for(int i=0; i<arr.length; i++) {
-			int tmp = arr[i];
-			arr[i] = arr[idx];
-			arr[idx] = tmp;
-		}		
-		
-		return arr;
-	}
-	
-	// 18번 문제 : isNumber(String str)
-	static boolean isNumber(String str) {
-		
-		if(str==null || str.equals("")) 
-			return false;
-		
-		for(int i=0; i<str.length(); i++) {
-			char ch = str.charAt(i);	
-			
-			if(!('0'<= ch && ch <'9'))
-				return false;
-		}
-		
-		return true;
-	}
-	
-	// 20번 문제
-	static int max(int[] arr) {
-		if(arr == null || arr.length == 0)
-			return -999999;
-		
-		int max = arr[0];
-		
-		for(int i=0; i<arr.length; i++) {
-			if(arr[i] > max)
-				max = arr[i];
-		}
-		return max;
-	}
-	
-	// 21번 문제
-	static int abs(int value) {
-		
-		return value > 0 ? value : (value < 0 ? -value : 0);
-	}
-	
-	
-	// 메인메서드
-	public static void main(String[] args) {
-		
-		int value = 5;
-		System.out.println(value + "의 절대값: " + abs(value));
-
-		value = -10;
-		System.out.println(value + "의 절대값: " + abs(value));
-		
-		value = 0;
-		System.out.println(value + "의 절대값: " + abs(value));
-
-		
-		
-	}
 }
