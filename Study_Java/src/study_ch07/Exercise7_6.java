@@ -13,7 +13,7 @@ public class Exercise7_6 {
 
 		Outer4 outer = new Outer4();
 		Outer4.Inner inner = outer.new Inner();
-				
 		System.out.println(inner.iv);
+		
 	}
 }

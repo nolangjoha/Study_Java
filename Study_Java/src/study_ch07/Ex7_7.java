@@ -19,11 +19,11 @@ class Car {
 	int door;
 	
 	void drive() {
-		System.out.println("drive, Brrrrrr~~~");
+		System.out.println("drive, Brrrr~");
 	}
-	
+
 	void stop() {
-		System.out.println("stop!!");
+		System.out.println("stop!!!");
 	}
 }
 

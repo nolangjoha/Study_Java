@@ -9,8 +9,8 @@ class Outer5 {
 public class Exercise7_7 {
 	public static void main(String[] args) {
 		
-		Outer5.Inner ii = new Outer5.Inner();
-		System.out.println(ii.iv);
+		Outer5.Inner inner = new Outer5.Inner();
+		System.out.println(inner.iv);
 		
 	}
 }

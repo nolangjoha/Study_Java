@@ -38,9 +38,12 @@ class MyTv2{
 		return this.volume;
 	}
 	
+	
 	public void gotoPrevChannel() {
 		setChannel(prevChannel);
 	}
+	
+	
 }
 
 public class Exercise7_5 {
