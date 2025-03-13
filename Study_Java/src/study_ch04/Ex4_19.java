@@ -16,7 +16,6 @@ public class Ex4_19 {
 			}
 			System.out.println();
 		}
-		
 	}
 	
 }
